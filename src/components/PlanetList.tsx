@@ -4,11 +4,10 @@ import { PlanetOverview } from './interfaces';
 import { Router } from '@reach/router';
 import { SinglePlanetPage } from './SinglePlanetPage';
 
-interface PlanetsProps {
+interface PlanetListProps {
   planets: PlanetOverview[];
-  path: string;
 }
-const Planets: React.FC<PlanetsProps> = ({ planets }) => {
+const PlanetList: React.FC<PlanetListProps> = ({ planets }) => {
   const renderPlanet = (planet: PlanetOverview): ReactNode => {
     return <PlanetTile key={planet.planet_id} planet={planet} />;
   };
@@ -16,11 +15,11 @@ const Planets: React.FC<PlanetsProps> = ({ planets }) => {
   return (
     <>
       <Router>
-        <SinglePlanetPage path='/planets/:planet_id' />
+        <SinglePlanetPage path='/:planet_id' />
       </Router>
       <ul>{planets.map(renderPlanet)}</ul>
     </>
   );
 };
 
-export default Planets;
+export default PlanetList;
