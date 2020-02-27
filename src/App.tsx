@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Planets from './components/Planets';
+import { Router } from '@reach/router';
+import { Nav } from './components/Nav';
+import { getPlanets } from './api';
+import AddPlanetForm from './components/AddPlanetForm';
 
-function App() {
+const App: React.FC = () => {
+  const [planets, setPlanets] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect((): void => {
+    getPlanets().then((planets): void => {
+      setPlanets(planets);
+      setIsLoading(false);
+    });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>Planets...</h1>
+      <Nav />
+      <main>
+        {isLoading ? (
+          'loading...'
+        ) : (
+          <Router>
+            <AddPlanetForm path='/add' />
+            <Planets path='/*' planets={planets} />
+          </Router>
+        )}
+      </main>
     </div>
   );
-}
+};
 
 export default App;

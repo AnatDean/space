@@ -1,38 +1,84 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.planet-tile {
+  border: solid 1px coral;
+  width: 20vw;
+  padding: 0.5em;
+  margin: 1em;
+  background-color: darkslategrey;
+  color: coral;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a {
+  color: pink;
+}
+
+a:hover {
+  color: rgb(222, 142, 56);
+}
+
+#single-planet {
+  width: 75%;
+  text-align: center;
+  color: darkslategray;
+  background-color: pink;
+}
+
+#single-planet-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95vw;
+}
+#single-planet-wrapper > a {
+  font-size: 6em;
+  text-decoration: none;
+  color: darkslategray;
+}
+
+.long-text {
+  text-align: start;
+}
+
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.top-bar {
+  text-align: end;
+}
+.top-bar > a {
+  color: darkslategray;
+  font-size: 2em;
+  text-decoration: none;
+  padding-right: 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav > a {
+  color: darkslategray;
+  padding: 0.2em;
+}
+form {
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+}
+input:hover,
+input:focus,
+select:hover,
+select:focus,
+form > button:hover,
+form > button:focus {
+  border: 1px solid darkslategray;
+  background-color: pink;
 }
